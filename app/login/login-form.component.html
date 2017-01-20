@@ -1,0 +1,31 @@
+<div id="formdiv">
+    <h3>Log In</h3>
+<form
+    [formGroup]="form" (ngSubmit)="onSubmit(form.value)" style="margin-top:0.5%">
+        <br/>
+        <ul>   
+            <li>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" formControlName="username">
+            <div *ngIf="form.controls.username.errors?.pattern" class="error">
+                Name is invalid characters
+            </div>
+        </li>
+        <br/>
+        <li>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" formControlName="password">
+        </li>
+    <li>
+        <a routerLink='/register'style="margin-left:7%">Register/Sign Up</a>
+    </li>
+    </ul>
+    <div style="margin-left:2%; margin-bottom: 2%">
+    
+    <button type="submit" [disabled] ="!form.valid" routerLink='/home'>Log In</button>
+    <button type="button"  style="margin-left:2%" routerLink='/login'>Cancel</button>
+    </div>
+    
+
+</form>
+</div>

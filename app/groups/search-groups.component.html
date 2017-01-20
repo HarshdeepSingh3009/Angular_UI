@@ -1,0 +1,80 @@
+<div id="formdiv">
+        <h3 >Search Groups</h3>
+        <br/>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" style="margin-top:0.5%">
+    <div style='padding-bottom: 3%'>
+        <div class='rightalign' >
+            <label>Group name</label>
+        </div>
+        <div class="leftalign">
+            <input type="text" id='groupname' name='groupname' formControlName="groupname" maxlength="50">
+        </div>
+    </div>
+    <div style='padding-bottom: 3%'>
+        <div class='rightalign' >
+            <label>University</label>
+        </div>
+         <div class="leftalign">
+             <select name="university" id="university" formControlName="university">
+                <option value="NEU">Northeastern University</option>
+                <option value="BU">Boston University</option>
+                <option value="HD">Harvard University</option>
+                <option value="MIT">Mass. Institute Technology</option>
+                <option value="UMASS">Univeristy of Massachusetts Amherst</option>
+                <option value="CT">California Institute of Technology</option>
+            </select>
+        </div>
+    </div>
+     
+    <div style='padding-bottom: 3%'>
+        <div class='rightalign'><label>Department</label></div>
+         <div class="leftalign">
+            <select name="department" id="department" formControlName="department">
+                <option value="CS">Computer Science</option>
+                <option value="IS">Information Systems</option>
+                <option value="EM">Engineering Management</option>
+                <option value="PHY">Physics</option>
+                <option value="CHEM">Chemistry</option>
+                <option value="ENG">English</option>
+            </select>
+        </div>
+    </div>
+   <div style='padding-bottom: 3%'>
+        <div class='rightalign'>
+            <label>Course</label>
+        </div>
+         <div class="leftalign">
+            <select name="course" id="course" formControlName="course">
+                <option value="PDP">PDP</option>
+                <option value="ALGO">Algorithms</option>
+                <option value="DBMS">Database Managment System</option>
+                <option value="IR">Information Retrieval</option>
+            </select>
+        </div>
+    </div>
+    <div style='padding-bottom: 3%'>
+        <div class='rightalign' >
+            <label>Term</label>
+        </div>
+        <div class="leftalign">
+             <select name="term" id="term" formControlName="term">
+                <option value="SP-2017">Spring-2017</option>
+                <option value="S-2017">Summer-2017</option>
+                <option value="F-2017">Fall-2017</option>
+                <option value="F-2016">Fall-2016</option>
+            </select>
+        </div>
+    </div>
+    <div style='padding-bottom: 1%'>
+    <button type="submit" id='search'>Search</button> 
+    <button type="button" id='cancel' routerLink='/home'>Cancel</button> 
+</div>
+</form>
+</div>
+
+<br/>
+<br/>
+
+<div id='searchgrid-div'*ngIf = "displaygrid">
+    <mw-searchgrid [rowData] = "groups" [showGrid] = "displaygrid"> </mw-searchgrid>
+</div>

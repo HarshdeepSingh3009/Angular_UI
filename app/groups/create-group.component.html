@@ -1,0 +1,120 @@
+<div id="formdiv">
+    <h3>Please provide group details</h3>
+    <br/>
+    <form [formGroup]="form" (ngSubmit) = "onSubmit(form.value)" style="margin-top:0.5%">
+        <table>
+    <tr class="error">
+        <td>
+        </td>
+        <td>
+             * All fields are required
+        </td>
+        </tr>
+    <tr>
+        <td class="rightalign">
+            <label for="groupname">Group name</label>
+        </td>
+        <td>
+            <input type="text" name="groupname" id="groupname" formControlName="groupname" maxlength="50">
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr *ngIf="form.controls.groupname.errors?.pattern" class="error">
+        <td>
+        </td>
+        <td>
+            <div>
+               Group name is invalid characters
+            </div>
+        </td>
+    </tr>
+    <br/>
+    <tr>
+        <td class="rightalign">
+            <label for="course">Course</label>
+        </td>
+        <td>
+            <select name="course" id="course" formControlName="course">
+                <option value="PDP">PDP</option>
+                <option value="ALGO">Algorithms</option>
+                <option value="DBMS">Database Managment System</option>
+                <option value="IR">Information Retrieval</option>
+            </select>
+        </td>
+    </tr>
+    <br/>
+     <tr>
+        <td class="rightalign">
+            <label for="term">Term</label>
+        </td>
+        <td>
+            <select name="term" id="term" formControlName="term">
+                <option value="SP-2017">Spring-2017</option>
+                <option value="S-2017">Summer-2017</option>
+                <option value="F-2017">Fall-2017</option>
+                <option value="F-2016">Fall-2016</option>
+            </select>
+        </td>
+    </tr>
+    <br/>
+       <tr>
+        <td class="rightalign">
+            <label for="department">Department</label>
+        </td>
+        <td>
+            <select name="department" id="department" formControlName="department" maxlength="200">
+                <option value="CS">Computer Science</option>
+                <option value="IS">Information Systems</option>
+                <option value="EM">Engineering Management</option>
+                <option value="PHY">Physics</option>
+                <option value="CHEM">Chemistry</option>
+                <option value="ENG">English</option>
+            </select>
+        </td>
+    </tr>
+    <br/>
+     <tr>
+        <td class="rightalign">
+            <label for="university">University</label>
+        </td>
+        <td>
+            <select name="university" id="university" formControlName="university">
+                <option value="NEU">Northeastern University</option>
+                <option value="BU">Boston University</option>
+                <option value="HD">Harvard University</option>
+                <option value="MIT">Mass. Institute Technology</option>
+                <option value="UMASS">Univeristy of Massachusetts Amherst</option>
+                <option value="CT">California Institute of Technology</option>
+            </select>
+        </td>
+    </tr>
+    <br/>
+    <tr>
+        <td class="rightalign">
+            <label for="createdby">Created By</label>
+        </td>
+        <td>
+            <input type="text" name="createdby" id="createdby" formControlName="createdby" maxlength="50">
+        </td>
+        <td>
+        </td>
+    </tr>
+    <br/>
+     <tr>
+        <td class="rightalign">
+            <label for="maxstrength">Estimated Enrollment</label>
+        </td>
+        <td>
+            <input type="text" name="maxstrength" id="maxstrength" formControlName="maxstrength">
+        </td>
+        <td>
+        </td>
+    </tr>
+</table>
+<div style="margin-left:2.0%; margin-bottom: 2%">
+<button type="submit" [disabled]="!form.valid">Save</button>
+<button type="button" style="margin-left:3%"routerLink='/home'>Cancel</button>
+</div>
+</form>
+</div>

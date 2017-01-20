@@ -1,0 +1,24 @@
+.leftalign{
+    width: 48%;
+    float: left;
+    text-align: left;
+    margin-left:1%;
+}
+.rightalign{
+     width: 47%;
+    float: left;
+    text-align: right;
+}
+
+#formdiv select{
+    width: auto;
+}
+
+#searchgrid-div{
+    max-width:100%;
+    border-width:0.5%;  
+    border-style:double; 
+    border-radius: 25px;  
+    text-align:center;
+    background-image: url('background-1.jpg');
+}

@@ -1,0 +1,54 @@
+<div id="divmain">
+    <div id="leftdiv">
+        <div style="width: 100%" *ngIf="havegroups" style="margin-left:1%;margin-top: 0.5%">
+<select id='ddlgroup' (change)="onChange($event.target.value)" (selected)="selectedgroup" style="width:35%">
+                 <option *ngFor="let group of groups" value="{{ group.id }}">{{ group.groupname }}</option>
+            </select>
+            <button id='btnsearchgroups' routerLink='/search'>Search Groups</button>
+            <button id='btncreategroups'routerLink='/add'>Create Group</button>
+            <button id='btnnewpost'routerLink='/newpost'>New Post</button>
+</div>
+<div *ngFor="let item of posts" class="postdiv">
+    <div class="innerpostdiv">
+        <a (click)="onClick(item)">{{item.title}} </a>
+    </div>
+    <div class="lowerinnerpostdiv">
+        <div style="float:left; text-align: left"> Posted on: {{item.posteddate}}
+</div>
+<div style="float:right; text-align: right"> Posted by: {{item.postedby}}
+</div>
+</div>
+</div>
+</div>
+<div id="rightdiv">
+    <div *ngIf="showcontent" id="postcontent">
+        <div id="upperdiv">
+            <div id="title">
+                {{post.title}}
+            </div>
+            <br/>
+            <div id="content">
+                {{post.content}}
+            </div>
+            <br/>
+            <div id="dateholder">
+                <div style="float:left; text-align: left;"> Posted on: {{post.posteddate}}
+                </div>
+                <div style="float:right; text-align: right;"> Posted by: {{post.postedby}}
+                </div>
+</div>
+</div>
+<div id="centerdiv">
+    <h4>Comments</h4>
+</div>
+<div id="lowerdiv">
+    <div style="width: 80%;float: left;">
+<textarea name="comment" id="commentbox"></textarea>
+</div>
+<div style="width: 19%;float: left; margin-left: 1%;height: 100%">
+<button type="button" id="btnPost">Post</button>
+</div>
+</div>
+</div>
+</div>
+</div>

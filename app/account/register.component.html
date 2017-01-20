@@ -1,0 +1,66 @@
+<div id="formdiv">
+    <h3>Create a new account</h3>
+    <br/>
+    <form [formGroup]="form" style="margin-top:0.5%">
+<table>
+    <tr class="error">
+        <td>
+        </td>
+        <td>
+             * All fields are required
+        </td>
+        </tr>
+    <tr>
+        <td class="rightalign">
+            <label for="username">Username</label>
+        </td>
+        <td>
+            <input type="text" name="username" id="username" formControlName="username" maxlength="200">
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <div *ngIf="form.controls.username.errors?.pattern" class="error">
+                Name is invalid characters
+            </div>
+        </td>
+    </tr>
+    <br/>
+    <tr>
+        <td class="rightalign">
+            <label for="password">Password</label>
+        </td>
+        <td>
+            <input type="password" name="password" id="password" formControlName="password" maxlength="200">
+        </td>
+    </tr>
+    <br/>
+    <tr>
+        <td class="rightalign">
+            <label for="confirmpassword">Confirm Password</label>
+        </td>
+        <td>
+            <input type="password" name="confirmpassword" id="confirmpassword" formControlName="confirmpassword" maxlength="200" (keyup)="onKey(form.controls.password.value,form.controls.confirmpassword.value)">
+        </td>
+    </tr>
+     <tr>
+        <td>
+        </td>
+        <td>
+             <div *ngIf="iserror && form.controls.confirmpassword.value !==''" class="error">
+                Passwords do not match.
+            </div>
+        </td>
+    </tr>
+    <br/>
+
+</table>
+<div style="margin-left:3.0%; margin-bottom: 2%">
+<button type="button" [disabled]="!form.valid || iserror" (click)="onClick(form.value)" routerLink='/createuser'>Continue</button>
+</div>
+</form>
+</div>
